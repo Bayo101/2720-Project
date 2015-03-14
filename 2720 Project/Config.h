@@ -31,18 +31,15 @@ const int64_t kCircleThicknessVariance = 8;
 
 const int64_t kCircleGroundOffset = 4;
 
-// ground settings
-const int64_t kGroundThickness = 4;
-
 // main settings
 const int64_t kFramesPerSecond = 120; // recommend 60 to 120
 const int64_t kDefaultNumPoints = 8; // do not change, keep it at 8
 
 const int64_t kNumRandomShapesToGenerate = 8; // this has to be less than the number of points
 const int64_t kNumRandomPointsToGenerate = 10;
-const int64_t kRandomPointYValueVariance = 50;
+const int64_t kNumStarsToGenerate = 10;
 
 const bool kCirclesOnly = false;  // set to true to display only circles
-const bool kRandomPoints = false; // set to true to generate points randomly
+const bool kRandomPoints = true; // set to true to generate points randomly
 
 #endif

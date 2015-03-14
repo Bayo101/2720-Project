@@ -16,7 +16,7 @@
 
 #include "Config.h"
 #include "AllegroSimulator.h"
-#include "Ground.h"
+#include "BackGround.h"
 #include "Point.h" 
 #include "Vector.h" 
 #include "Drawable.h"
@@ -30,7 +30,7 @@ using namespace std;
 class Square_t : public Drawable_t, public Moveable_t {
 private:
 	// member variables
-	shared_ptr<Ground_t> groundPtr; // pointer to the ground object
+	shared_ptr<BackGround_t> groundPtr; // pointer to the ground object
 
 	Point_t currentPosition; // the currentPosition of the square
 	Point_t mostRecentPointReached; // the previous point we started at
@@ -48,7 +48,7 @@ private:
 
 public:
 	// constructor
-	Square_t(const Display_t &d, const int64_t &fps, const shared_ptr<Ground_t> &groundPtrInput) {
+	Square_t(const Display_t &d, const int64_t &fps, const shared_ptr<BackGround_t> &groundPtrInput) {
 		groundPtr = groundPtrInput; // store pointer to the ground object for later use, very important
 		width = d.getWidth();  // store window width, not really used
 		height = d.getHeight(); // store window height, not really used
