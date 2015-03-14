@@ -8,6 +8,7 @@
 #define CONFIG_H
 
 #include "Config.h"
+
 #include <cstdint>
 
 using namespace std;
@@ -41,7 +42,7 @@ const int64_t kNumRandomShapesToGenerate = 8; // this has to be less than the nu
 const int64_t kNumRandomPointsToGenerate = 10;
 const int64_t kRandomPointYValueVariance = 50;
 
-const bool kCirclesOnly = false;  // set to true to display on circles
+const bool kCirclesOnly = false;  // set to true to display only circles
 const bool kRandomPoints = false; // set to true to generate points randomly
 
 #endif
