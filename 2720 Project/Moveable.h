@@ -7,6 +7,8 @@
 #ifndef MOVEABLE_H
 #define MOVEABLE_H
 
+#include "Config.h"
+
 using namespace std;
 
 class Moveable_t {

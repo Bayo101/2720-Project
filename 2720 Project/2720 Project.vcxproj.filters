@@ -32,6 +32,9 @@
     <None Include="Makefile">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="Config.h">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h">
@@ -55,10 +58,13 @@
     <ClInclude Include="Square.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Structs.h">
+    <ClInclude Include="AllegroSimulator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AllegroSimulator.h">
+    <ClInclude Include="Point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

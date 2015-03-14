@@ -14,22 +14,18 @@
 #include <iostream>
 #include <cstdint>
 
+#include "Config.h"
 #include "AllegroSimulator.h"
 #include "Ground.h"
-#include "Structs.h"
+#include "Point.h" 
+#include "Vector.h" 
 #include "Drawable.h"
 #include "Moveable.h"
 
 using namespace std;
 
 // used to modify square dimensions
-const int64_t kSquareSizeVariance = 20;
-const int64_t kMinSquareSize = 30;
 
-const int64_t kMinSquareThickness = 6;
-const int64_t kSquareThicknessVariance = 6;
-
-const int64_t kSquareGroundOffset = 15;
 
 class Square_t : public Drawable_t, public Moveable_t {
 private:

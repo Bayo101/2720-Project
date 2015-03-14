@@ -4,9 +4,9 @@ LIBDIR = /home/lib2720/allegro5/lib/
 LNFLAGS = -lallegro -lallegro_primitives
 OBJECTS = Main.o Display.o Simulator.o GameSimulator.o
 
-all : clean-all show execute
+all : clean-all game execute
 
-show : $(OBJECTS)
+game : $(OBJECTS)
 	$(CCC) -L $(LIBDIR) -o $@ $^ $(LNFLAGS) 
 
 %.o : %.cc
@@ -16,7 +16,7 @@ clean :
 	rm -f *.o *~ *% *# .#*
 
 clean-all : clean
-	rm -f show
+	rm -f game
 
 execute : 
-	show
+	game

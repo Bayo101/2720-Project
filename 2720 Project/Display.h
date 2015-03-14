@@ -7,6 +7,7 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
+#include "Config.h"
 #include <allegro5/allegro.h>
 #include <cstdint>
 

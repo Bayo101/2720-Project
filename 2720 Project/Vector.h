@@ -4,8 +4,10 @@
 // Project: Game
 // Members: Alex Hochheiden, Adam Lefaivre, Bayo Adejumo, Cody Crawford
 
-#ifndef STRUCTS_H
-#define STRUCTS_H
+#ifndef VECTOR_H
+#define VECTOR_H
+
+#include "Config.h"
 
 using namespace std;
 
@@ -38,42 +40,6 @@ struct Vector_t {
 	// inequality operator
 	bool operator != (Vector_t vectorInput) const {
 		if ((x != vectorInput.x) || (y != vectorInput.y)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-};
-
-// x and y point pair in an object with some overloaded operators
-struct Point_t {
-	// member variables
-	double x;
-	double y;
-
-	// constructor
-	Point_t(double xInput = 0.0, double yInput = 0.0) {
-		x = xInput;
-		y = yInput;
-	};
-
-	// addition operator
-	Point_t operator + (Vector_t vectorInput) const {
-		return Point_t((x + vectorInput.x), (y + vectorInput.y));
-	};
-
-	// equality operator
-	bool operator == (Point_t pointInput) const {
-		if ((x == pointInput.x) && (y == pointInput.y)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	// inequality operator
-	bool operator != (Point_t pointInput) const {
-		if ((x != pointInput.x) || (y != pointInput.y)) {
 			return true;
 		} else {
 			return false;

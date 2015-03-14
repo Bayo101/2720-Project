@@ -10,6 +10,7 @@
 #include <allegro5/allegro.h>
 #include <cstdint>
 
+#include "Config.h"
 #include "Display.h"
 
 using namespace std;

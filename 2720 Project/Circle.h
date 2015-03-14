@@ -14,22 +14,18 @@
 #include <memory>
 #include <cstdint>
 
+#include "Config.h"
 #include "AllegroSimulator.h"
 #include "Ground.h"
-#include "Structs.h"
+#include "Point.h" 
+#include "Vector.h" 
 #include "Drawable.h"
 #include "Moveable.h"
 
 using namespace std;
 
 // used to modify circle dimensions
-const int64_t kDiameterVariance = 20;
-const int64_t kMinDiameter = 30;
 
-const int64_t kMinCircleThickness = 6;
-const int64_t kCircleThicknessVariance = 8;
-
-const int64_t kCircleGroundOffset = 4;
 
 class Circle_t : public Drawable_t, public Moveable_t {
 private:

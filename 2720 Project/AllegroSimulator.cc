@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <cstdint>
 
+#include "Config.h"
 #include "AllegroSimulator.h"
 
 using namespace std;

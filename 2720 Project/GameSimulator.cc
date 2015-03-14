@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <cstdint>
 
+#include "Config.h"
 #include "GameSimulator.h"
 #include "AllegroSimulator.h"
 #include "Display.h"

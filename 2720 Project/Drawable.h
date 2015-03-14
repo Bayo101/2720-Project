@@ -7,6 +7,8 @@
 #ifndef DRAWABLE_H
 #define DRAWABLE_H
 
+#include "Config.h"
+
 using namespace std;
 
 class Drawable_t {

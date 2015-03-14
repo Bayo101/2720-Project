@@ -11,14 +11,14 @@
 #include <vector>
 #include <cstdint>
 
-#include "Structs.h"
+#include "Config.h"
+#include "Point.h" 
+#include "Vector.h" 
 #include "AllegroSimulator.h"
 #include "Drawable.h"
 #include "Moveable.h"
 
 using namespace std;
-
-const int64_t kGroundThickness = 4;
 
 class Ground_t : public Drawable_t {
 private:

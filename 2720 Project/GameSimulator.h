@@ -10,6 +10,7 @@
 #include <vector>
 #include <memory>
 
+#include "Config.h"
 #include "Display.h"
 #include "AllegroSimulator.h"
 #include "Drawable.h"

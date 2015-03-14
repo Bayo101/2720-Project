@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include <cstdint>
 
+#include "Config.h"
 #include "Display.h"
 
 using namespace std;

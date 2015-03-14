@@ -11,6 +11,7 @@
 #include <vector>
 #include <cstdint>
 
+#include "Config.h"
 #include "Display.h"
 #include "GameSimulator.h"
 #include "Drawable.h"
@@ -18,7 +19,8 @@
 #include "Ground.h"
 #include "Circle.h"
 #include "Square.h"
-#include "Structs.h"
+#include "Point.h" 
+#include "Vector.h" 
 
 using namespace std;
 
@@ -27,42 +29,21 @@ void generateShapes(GameSimulator_t &simulator, const Display_t &display);
 void addCircle(GameSimulator_t &simulator, const Display_t &display);
 void addSquare(GameSimulator_t &simulator, const Display_t &display);
 
-/********* Settings *******/
-const int64_t kFramesPerSecond = 120; // recommend 60 to 120
-const int64_t kDefaultNumPoints = 8; // do not change, keep it at 8
-
-const int64_t kNumRandomShapesToGenerate = 8; // this has to be less than the number of points
-const int64_t kNumRandomPointsToGenerate = 10;
-const int64_t kRandomPointYValueVariance = 50;
-
-const bool kCirclesOnly = false;  // set to true to display on circles
-const bool kRandomPoints = false; // set to true to generate points randomly
-/**************************/
-
 int main() {
-	// initialize the display and our simulator
-	Display_t display; // initialize a display with default values
-	GameSimulator_t simulator(display, kFramesPerSecond); // attach a simulator to the display with predefined FPS
+	Display_t display; 
+	GameSimulator_t simulator(display, kFramesPerSecond);
 
-	// seed random with the current time
 	srand(time(NULL));
 
-	// generate the ground before the shapes for two reasons, 
-	// 1) layering, so the ground is drawn first and objects infront
-	// 2) all other shapes need a pointer to the ground because they need to know the vertices, so the ground need to be constructed before they are
 	generateGround(simulator, display);
-	// after the ground is made we can make some shopes
 	generateShapes(simulator, display);
 
-	// once we've generated our ground and shapes, we runGameLoop() the simulation
 	simulator.runGameLoop();
 
 	return 0;
 }
 
-// generates the ground, either randomly or using predefined values, determined via settings at the top
 void generateGround(GameSimulator_t &simulator, const Display_t &display) {
-	// a vector that will hold our random points or predefined points and will be used to construct the ground
 	vector<Point_t> tempPoints;
 
 	if (kRandomPoints) {

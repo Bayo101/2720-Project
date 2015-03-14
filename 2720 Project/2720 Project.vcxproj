@@ -76,6 +76,7 @@
     <ClCompile Include="AllegroSimulator.cc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Config.h" />
     <None Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
@@ -86,8 +87,9 @@
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Moveable.h" />
     <ClInclude Include="AllegroSimulator.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="Square.h" />
-    <ClInclude Include="Structs.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
