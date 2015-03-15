@@ -4,17 +4,27 @@
 // Project: Game
 // Members: Alex Hochheiden, Adam Lefaivre, Bayo Adejumo, Cody Crawford
 
-#ifndef MOVEABLE_H
-#define MOVEABLE_H
-
-#include "Config.h"
+#include "Enemy.h"
 
 using namespace std;
 
-class Moveable_t {
-public:
-	virtual void move(double framePeriod) = 0;
-	virtual ~Moveable_t() {};
-};
+Enemy_t::Enemy_t() {
 
-#endif
+}
+
+
+Enemy_t::~Enemy_t() {
+
+
+}
+
+void Enemy_t::draw() {
+
+
+}
+
+void Enemy_t::move(double framePeriod) {
+
+
+
+}

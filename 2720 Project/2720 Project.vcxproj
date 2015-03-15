@@ -71,9 +71,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Display.cc" />
+    <ClCompile Include="Enemy.cc" />
     <ClCompile Include="GameSimulator.cc" />
+    <ClCompile Include="Hero.cc" />
     <ClCompile Include="Main.cc" />
     <ClCompile Include="AllegroSimulator.cc" />
+    <ClCompile Include="Object.cc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config.h" />
@@ -83,10 +86,14 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Drawable.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameSimulator.h" />
-    <ClInclude Include="Ground.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="Hero.h" />
+    <ClInclude Include="Killable.h" />
     <ClInclude Include="Moveable.h" />
     <ClInclude Include="AllegroSimulator.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Vector.h" />

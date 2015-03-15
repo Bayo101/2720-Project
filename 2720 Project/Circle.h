@@ -16,16 +16,13 @@
 
 #include "Config.h"
 #include "AllegroSimulator.h"
-#include "BackGround.h"
+#include "Background.h"
 #include "Point.h" 
 #include "Vector.h" 
 #include "Drawable.h"
 #include "Moveable.h"
 
 using namespace std;
-
-// used to modify circle dimensions
-
 
 class Circle_t : public Drawable_t, public Moveable_t {
 private:
@@ -96,7 +93,7 @@ public:
 	}
 
 	// changes the objects coordinates based on the current vector, vectors are calculated inside the ground class
-	void deltaMove(double framePeriod) {
+	void move(double framePeriod) {
 		// need to do this before we can determine our vector/slope
 		determineTarget();
 		// do the movement

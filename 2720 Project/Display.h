@@ -20,23 +20,13 @@ private:
 	int64_t height;
 
 public:
-	Display_t(int64_t w = 800, int64_t h = 600);
+	Display_t(int64_t widthInput = 800, int64_t heightInput = 600);
 	~Display_t();
 
-	/// Returns the width of the window
-	int64_t getWidth() const {
-		return width;
-	};
+	int64_t getWidth() const;
+	int64_t getHeight() const;
 
-	/// Returns the height of the window
-	int64_t getHeight() const {
-		return height;
-	};
-
-	/// Returns the Allegro display
-	ALLEGRO_DISPLAY * getAllegroDisplay() const {
-		return display;
-	}
+	ALLEGRO_DISPLAY* getAllegroDisplay() const;
 };
 
 #endif

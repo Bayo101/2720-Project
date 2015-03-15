@@ -22,9 +22,8 @@ protected:
 	ALLEGRO_TIMER *timer;
 
 public:
-	AllegroSimulator_t(const Display_t & d, const int64_t &fps);
+	AllegroSimulator_t(const Display_t &displayInput, const int64_t &fpsInput);
 	~AllegroSimulator_t();
-	virtual void runGameLoop() = 0;
 };
 
 #endif

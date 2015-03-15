@@ -27,6 +27,15 @@
     <ClCompile Include="AllegroSimulator.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Hero.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile">
@@ -49,9 +58,6 @@
     <ClInclude Include="GameSimulator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Ground.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Moveable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -65,6 +71,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hero.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Killable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

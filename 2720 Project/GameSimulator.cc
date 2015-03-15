@@ -15,15 +15,21 @@
 #include "Display.h"
 #include "Drawable.h"
 #include "Moveable.h"
-#include "BackGround.h"
+#include "Background.h"
 #include "Square.h"
 #include "Circle.h"
 
 using namespace std;
 
-// constructor, empty since the simulator base class does everything we need
-GameSimulator_t::GameSimulator_t(const Display_t &d, const int64_t &fps) : AllegroSimulator_t(d, fps) {}
+// constructor
+GameSimulator_t::GameSimulator_t(const Display_t &displayInput, const int64_t &fpsInput) : AllegroSimulator_t(displayInput, fpsInput) {
+	stop = false;
+	redraw = true;
+	currentTime = 0;
+	timeOfLastUpdate = 0;
+}
 
+// destructor
 GameSimulator_t::~GameSimulator_t() {
 	drawable.clear();
 	drawable.resize(0);
@@ -31,52 +37,48 @@ GameSimulator_t::~GameSimulator_t() {
 	moveable.resize(0);
 }
 
-// update the position of all objectss in the moveable container
-void GameSimulator_t::update(double framePeriod) {
-	for (uint64_t i = 0; i < moveable.size(); i++) {
-		moveable[i]->deltaMove(framePeriod);
+// gets user input keystrokes, step 1 of game loop
+void GameSimulator_t::input() {
+	al_wait_for_event(eventQueue, &event);
+
+
+}
+
+// update the position of all objects based on user input, step 2 of game loop
+void GameSimulator_t::update() {
+	if (event.type == ALLEGRO_EVENT_TIMER) {
+		currentTime = al_current_time();
+		auto framePeriod = (currentTime - timeOfLastUpdate);
+		for (uint64_t i = 0; i < moveable.size(); i++) {
+			moveable[i]->move(framePeriod);
+		}
+		// set last update time to now
+		timeOfLastUpdate = currentTime;
+		// since we updated, we need to redraw
+		redraw = true;
+	} else if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+		stop = true;
 	}
 }
 
-// draw all objectss in the drawable container
+// draw all objectss in the drawable container, step 3 of game loop
 void GameSimulator_t::render() {
-	al_clear_to_color(al_map_rgb(5, 20, 20)); // resets the screen to a solid color, currently set as a dark blue
-	for (uint64_t i = 0; i < drawable.size(); i++) {
-		drawable[i]->draw();
+	if (redraw && al_is_event_queue_empty(eventQueue)) {
+		al_clear_to_color(al_map_rgb(3, 12, 12)); // resets the screen to a solid color every frame
+		for (uint64_t i = 0; i < drawable.size(); i++) {
+			drawable[i]->draw();
+		}
+		al_flip_display(); // puts the rendered frame in the display window
+		redraw = false;
 	}
-	al_flip_display(); // puts the newest rendered frame in the display window
 }
 
-// the runGameLoop()time loop
+// the runtime game loop
 void GameSimulator_t::runGameLoop() {
-	// switch to trigger model drawing
-	bool redraw = true;
-	// current time and timeOfLastUpdate in milliseconds
-	// we need them to determine the ratio of movement for a given fps
-	double currentTime = 0;
-	double timeOfLastUpdate = 0;
-
-	while (true) {
-		ALLEGRO_EVENT ev;
-		al_wait_for_event(eventQueue, &ev);
-		// update
-		if (ev.type == ALLEGRO_EVENT_TIMER) {
-			currentTime = al_current_time();
-			// update the position of all moveable objects with a fraction of time elapsed as a multiplier
-			// this works in conjunction with the fps to make it move as much as it should in a given timeframe
-			update(currentTime - timeOfLastUpdate);
-			// set last update time to now
-			timeOfLastUpdate = currentTime;
-			// since we updated, we need to redraw
-			redraw = true;
-		} else if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
-			break; // if we close the window, we break out of this infinite loop
-		}
-		// render
-		if (redraw && al_is_event_queue_empty(eventQueue)) {
-			render(); // draw all drawable objects
-			redraw = false;
-		}
+		while (!stop) {		
+		input();
+		update();
+		render();
 	}
 }
 

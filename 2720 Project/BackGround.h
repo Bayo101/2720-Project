@@ -36,13 +36,13 @@ private:
 
 public:
 	// constructor
-	BackGround_t(const Display_t & d, const int64_t & fps, vector<Point_t> verticesInput) {
+	BackGround_t(const Display_t &displayInput, const int64_t &fpsInput, vector<Point_t> &verticesInput) {
 		stars = verticesInput; // a vector of all the points, between which we draw lines.
 		occupiedCount = 0; // set to 0, used n conjuncton with the bool array to stop objects from spawning in the same spot
 		occupied.assign(stars.size(), false); // set all points as unoccupied, used later so objects don't spawn in the same locations
-		width = d.getWidth();  // store window height, not really used
-		height = d.getHeight(); // store window height, not really used
-		// set the color of the line, hardcoded to brown (139, 69, 19)
+		width = displayInput.getWidth();
+		height = displayInput.getHeight();
+
 		red = 255;
 		green = 255;
 		blue = 0;

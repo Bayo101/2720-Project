@@ -13,6 +13,10 @@
 
 using namespace std;
 
+// display settings
+const int64_t kDisplayWidth = 1024;
+const int64_t kDisplayHeight = 768;
+
 // square settings
 const int64_t kSquareSizeVariance = 20;
 const int64_t kMinSquareSize = 30;
@@ -42,4 +46,6 @@ const int64_t kNumStarsToGenerate = 10;
 const bool kCirclesOnly = false;  // set to true to display only circles
 const bool kRandomPoints = true; // set to true to generate points randomly
 
+// hero settings
+const int64_t kHeroStartingHealth = 200;
 #endif

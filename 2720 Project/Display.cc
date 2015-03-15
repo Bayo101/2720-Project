@@ -14,15 +14,13 @@
 
 using namespace std;
 
-Display_t::Display_t(int64_t w, int64_t h) {
-	width = w;
-	height = h;
+// constructor
+Display_t::Display_t(int64_t widthInput, int64_t heightInput) {
+	width = widthInput;
+	height = heightInput;
 
 	al_init();
 
-	// if the display cannot be initialized, we should throw an
-	// exception. We will deal with exceptons later in the course, so
-	// for now, we simply exit
 	if ((display = al_create_display(width, height)) == NULL) {
 		std::cerr << "Cannot initialize the display" << std::endl;
 		exit(1); // non-zero argument means "trouble"
@@ -31,6 +29,22 @@ Display_t::Display_t(int64_t w, int64_t h) {
 	al_init_primitives_addon();
 }
 
+// destructor
 Display_t::~Display_t() {
 	al_destroy_display(display);
 }
+
+/// Returns the width of the window
+int64_t Display_t::getWidth() const {
+	return width;
+};
+
+/// Returns the height of the window
+int64_t Display_t::getHeight() const {
+	return height;
+};
+
+/// Returns the Allegro display
+ALLEGRO_DISPLAY* Display_t::getAllegroDisplay() const {
+	return display;
+};

@@ -14,8 +14,8 @@
 
 using namespace std;
 
-AllegroSimulator_t::AllegroSimulator_t(const Display_t &d, const int64_t &fps) {
-	FPS = fps;
+AllegroSimulator_t::AllegroSimulator_t(const Display_t &displayInput, const int64_t &fpsInput) {
+	FPS = fpsInput;
 	timer = NULL;
 	eventQueue = NULL;
 
@@ -27,7 +27,7 @@ AllegroSimulator_t::AllegroSimulator_t(const Display_t &d, const int64_t &fps) {
 		throw std::runtime_error("Cannot create event queue");
 	}
 
-	al_register_event_source(eventQueue, al_get_display_event_source(d.getAllegroDisplay()));
+	al_register_event_source(eventQueue, al_get_display_event_source(displayInput.getAllegroDisplay()));
 	al_register_event_source(eventQueue, al_get_timer_event_source(timer));
 	al_start_timer(timer);
 }

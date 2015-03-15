@@ -4,17 +4,24 @@
 // Project: Game
 // Members: Alex Hochheiden, Adam Lefaivre, Bayo Adejumo, Cody Crawford
 
-#ifndef MOVEABLE_H
-#define MOVEABLE_H
+#ifndef KILLABLE_H
+#define KILLABLE_H
+
+#include <cstdint>
 
 #include "Config.h"
+#include "Object.h"
 
 using namespace std;
 
-class Moveable_t {
+class Killable_t {
+private:
+	int64_t health;
+	bool alive;
+
 public:
-	virtual void move(double framePeriod) = 0;
-	virtual ~Moveable_t() {};
+	virtual void setStartingHealth() = 0;
+	virtual ~Killable_t() {};
 };
 
 #endif

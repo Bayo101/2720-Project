@@ -16,7 +16,7 @@
 #include "GameSimulator.h"
 #include "Drawable.h"
 #include "Moveable.h"
-#include "BackGround.h"
+#include "Background.h"
 #include "Circle.h"
 #include "Square.h"
 #include "Point.h" 
@@ -24,18 +24,18 @@
 
 using namespace std;
 
-void generateBackGround(GameSimulator_t &simulator, const Display_t &display);
+void generateBackground(GameSimulator_t &simulator, const Display_t &display);
 void generateShapes(GameSimulator_t &simulator, const Display_t &display);
 void addCircle(GameSimulator_t &simulator, const Display_t &display);
 void addSquare(GameSimulator_t &simulator, const Display_t &display);
 
 int main() {
-	Display_t display;
+	Display_t display(kDisplayWidth, kDisplayHeight);
 	GameSimulator_t simulator(display, kFramesPerSecond);
 
 	srand(time(NULL));
 
-	generateBackGround(simulator, display);
+	generateBackground(simulator, display);
 	//generateShapes(simulator, display);
 
 	simulator.runGameLoop();
@@ -43,7 +43,7 @@ int main() {
 	return 0;
 }
 
-void generateBackGround(GameSimulator_t &simulator, const Display_t &display) {
+void generateBackground(GameSimulator_t &simulator, const Display_t &display) {
 	vector<Point_t> tempPoints;
 	int64_t starCount = 0;
 	while (starCount != kNumStarsToGenerate) {
