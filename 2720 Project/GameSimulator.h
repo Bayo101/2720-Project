@@ -15,7 +15,7 @@
 #include "AllegroSimulator.h"
 #include "Drawable.h"
 #include "Moveable.h"
-#include "Ground.h"
+#include "BackGround.h"
 
 using namespace std;
 
@@ -25,7 +25,7 @@ private:
 	vector<shared_ptr<Drawable_t> > drawable;
 	vector<shared_ptr<Moveable_t> > moveable;
 	// used to simplify contructing objects in main by minimizing function parameter count
-	shared_ptr<Ground_t> groundPtr;
+	shared_ptr<BackGround_t> groundPtr;
 
 public:
 	// constructor
@@ -38,11 +38,11 @@ public:
 	// runGameLoop()time loop
 	void runGameLoop();
 	// used to prepare for a runGameLoop()
-	void addGround(const shared_ptr<Ground_t> &groundPtrInput);
+	void addBackGround(const shared_ptr<BackGround_t> &groundPtrInput);
 	void addDrawable(const shared_ptr<Drawable_t> &drawPtr);
 	void addMoveable(const shared_ptr<Moveable_t> &movePtr);
 	// used to simplify contructing objects in main by minimizing function parameter count
-	shared_ptr<Ground_t> getGround();
+	shared_ptr<BackGround_t> getGround();
 };
 
 #endif

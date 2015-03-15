@@ -15,7 +15,7 @@
 #include "Display.h"
 #include "Drawable.h"
 #include "Moveable.h"
-#include "Ground.h"
+#include "BackGround.h"
 #include "Square.h"
 #include "Circle.h"
 
@@ -81,7 +81,7 @@ void GameSimulator_t::runGameLoop() {
 }
 
 // used in main to add the ground to the simulator to ease parameter passing when constructing shapes
-void GameSimulator_t::addGround(const shared_ptr<Ground_t> &groundPtrInput) {
+void GameSimulator_t::addBackGround(const shared_ptr<BackGround_t> &groundPtrInput) {
 	groundPtr = groundPtrInput;
 }
 
@@ -96,6 +96,6 @@ void GameSimulator_t::addMoveable(const shared_ptr<Moveable_t> &movePtr) {
 }
 
 // used when constructing shapes in main once the ground has been set
-shared_ptr<Ground_t> GameSimulator_t::getGround() {
+shared_ptr<BackGround_t> GameSimulator_t::getGround() {
 	return groundPtr;
 }
